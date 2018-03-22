@@ -1,0 +1,23 @@
+{
+  "name": "arg-guard",
+  "version": "1.0.1",
+  "author": "Minotech Ltd",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "arguments",
+    "guard"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ministryotech/guard.git"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.0",
+    "eslint-config-defaults": "^9.0.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-clean": "^0.4.0"
+  },
+  "dependencies": {}
+}
