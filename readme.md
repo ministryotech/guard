@@ -31,10 +31,10 @@ Newer content prefers Github. Bitbucket is no longer actively used.
 ### Where can I get it?
 You can download the package for this project from any of the following package managers...
 
-- **NPM** - [https://www.mpmjs.com/arg-guard](https://www.npmjs.com/arg-gurad)
+- **NPM** - [https://www.npmjs.com/arg-guard](https://www.npmjs.com/arg-guard)
 
 ### Contribution guidelines
 If you would like to contribute to the project, please contact me.
 
 ### Who do I talk to?
-* Keith Jackson - keith@ministryotech.co.uk
+* Keith Jackson - keith@minotech.co.uk
