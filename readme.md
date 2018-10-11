@@ -10,13 +10,12 @@ Variants supported...
 - throwIfNaN() - Throws if the specified parameter is not a number.
 
 Sample usage
-```
-const guard = require("arg-guard");
 
-const myFunc = function(requiredArg, otherArg) {
-    guard.throwIf(requiredArg, "requiredArg");
-}
-```
+    const guard = require("arg-guard");
+
+    const myFunc = function(requiredArg, otherArg) {
+        guard.throwIf(requiredArg, "requiredArg");
+    }
 
 # The Ministry of Technology Open Source Products
 Welcome to The Ministry of Technology open source products. All open source Ministry of Technology products are distributed under the MIT License for maximum re-usability. Details on more of our products and services can be found on our website at http://www.ministryotech.co.uk
