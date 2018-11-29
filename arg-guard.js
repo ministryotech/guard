@@ -19,8 +19,8 @@
          */
         throwIf: function(param, paramName) {
             if (param === undefined || param === null) throw TypeError(paramName 
-                ? `The '${paramName}' parameter is required.`
-                : `The parameter is required.`)
+                ? 'The ' + paramName + ' parameter is required.'
+                : 'The parameter is required.')
         },
     
         /**
@@ -30,11 +30,11 @@
          * @param {string} paramName The optional name of the parameter.
          */
         throwIfNotIn: function(param, validValues, paramName) {
-            argumentGuard.throwIf(validValues, "validValues")      
+            argumentGuard.throwIf(validValues, 'validValues')      
             argumentGuard.throwIf(param, paramName) 
             if (!validValues.includes(param)) throw TypeError(paramName 
-                ? `The '${paramName}' parameter is out of range.`
-                : `The parameter is out of range.`)
+                ? 'The ' + paramName + ' parameter is out of range.'
+                : 'The parameter is out of range.')
         },
         
         /**
@@ -45,8 +45,8 @@
          */
         throwIfNull: function(param, paramName) {
             if (param === null) throw TypeError(paramName 
-                ? `The '${paramName}' parameter cannot be null.`
-                : `The parameter cannot be null.`)
+                ? 'The ' + paramName + ' parameter cannot be null.'
+                : 'The parameter cannot be null.')
         },
         
         /**
@@ -57,8 +57,8 @@
          */
         throwIfUndefined: function(param, paramName) {
             if (param === undefined) throw TypeError(paramName 
-                ? `The '${paramName}' parameter must be defined.`
-                : `The parameter must be defined.`)
+                ? 'The ' + paramName + ' parameter must be defined.'
+                : 'The parameter must be defined.')
         },
         
         /**
@@ -69,15 +69,15 @@
          */
         throwIfNaN: function(param, paramName) {
             if (isNaN(Number(param))) throw TypeError(paramName 
-                ? `The '${paramName}' parameter is not a number.`
-                : `The parameter is not a number.`)
+                ? 'The ' + paramName + ' parameter is not a number.'
+                : 'The parameter is not a number.')
         }
     }
 
     // Exports to the global scope
-    if (typeof define === "function" && define.amd) {
-        define("arg-guard", [], function() { return argumentGuard })
-    } else if (typeof exports === "object") {
+    if (typeof define === 'function' && define.amd) {
+        define('arg-guard', [], function() { return argumentGuard })
+    } else if (typeof exports === 'object') {
         module.exports = argumentGuard
     } else {
         root.ArgumentGuard = argumentGuard

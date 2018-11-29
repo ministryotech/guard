@@ -57,9 +57,9 @@
       "prefer-const": 1,
       "quotes": [
         2,
-        "double",
+        "single",
         {
-          "allowTemplateLiterals": true
+          "allowTemplateLiterals": false
         }
       ],
       "semi": [
