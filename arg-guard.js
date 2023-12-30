@@ -1,21 +1,25 @@
+// noinspection JSUnusedGlobalSymbols
+
 /*
     Argument Guard
     --------------
     Throws well formatted errors for guarding methods.
-
     https://github.com/ministryotech/guard
 */
 (function() {
 
     const root = window
 
-    const argumentGuard = {
+    /**
+     * A helper for guarding against null / undefined arguments.
+     */
+    const ArgumentGuard = {
 
         /**
-         * Throws a {TypeError} if the required parameter is null or undefined.
-         * 
+         * Throws if the required parameter is null or undefined.
          * @param {any} param The parameter to guard.
-         * @param {string} paramName The optional name of the parameter.
+         * @param {?string} paramName The optional name of the parameter.
+         * @throws {TypeError}
          */
         throwIf: function(param, paramName) {
             if (param === undefined || param === null) throw TypeError(paramName 
@@ -24,24 +28,25 @@
         },
     
         /**
-         * Throws a {TypeError} if the required parameter is not in the range of expected values.
-         * 
+         * Throws if the required parameter is not in the range of expected values.
          * @param {any} param The parameter to guard.
-         * @param {string} paramName The optional name of the parameter.
+         * @param {Array<any>} validValues The parameter values that are acceptable.
+         * @param {?string} paramName The optional name of the parameter.
+         * @throws {TypeError}
          */
         throwIfNotIn: function(param, validValues, paramName) {
-            argumentGuard.throwIf(validValues, 'validValues')      
-            argumentGuard.throwIf(param, paramName) 
+            ArgumentGuard.throwIf(validValues, 'validValues')
+            ArgumentGuard.throwIf(param, paramName)
             if (!validValues.includes(param)) throw TypeError(paramName 
                 ? 'The ' + paramName + ' parameter is out of range.'
                 : 'The parameter is out of range.')
         },
         
         /**
-         * Throws a {TypeError} if the required parameter is null.
-         * 
+         * Throws if the required parameter is null.
          * @param {any} param The parameter to guard.
-         * @param {string} paramName The optional name of the parameter.
+         * @param {?string} paramName The optional name of the parameter.
+         * @throws {TypeError}
          */
         throwIfNull: function(param, paramName) {
             if (param === null) throw TypeError(paramName 
@@ -50,10 +55,10 @@
         },
         
         /**
-         * Throws a {TypeError} if the required parameter is undefined.
-         * 
+         * Throws if the required parameter is undefined.
          * @param {any} param The parameter to guard.
-         * @param {string} paramName The optional name of the parameter.
+         * @param {?string} paramName The optional name of the parameter.
+         * @throws {TypeError}
          */
         throwIfUndefined: function(param, paramName) {
             if (param === undefined) throw TypeError(paramName 
@@ -62,10 +67,10 @@
         },
         
         /**
-         * Throws a {TypeError} if the specified parameter is not a number.
-         * 
+         * Throws if the specified parameter is not a number.
          * @param {any} param The parameter to guard.
-         * @param {string} paramName The optional name of the parameter.
+         * @param {?string} paramName The optional name of the parameter.
+         * @throws {TypeError}
          */
         throwIfNaN: function(param, paramName) {
             if (isNaN(Number(param))) throw TypeError(paramName 
@@ -74,13 +79,17 @@
         }
     }
 
-    // Exports to the global scope
+    /*--------------------------------------------------------------------------*/
+
+    // Export library
+    // noinspection JSUnresolvedReference - define check for require.js module support.
     if (typeof define === 'function' && define.amd) {
-        define('arg-guard', [], function() { return argumentGuard })
+        // noinspection JSUnresolvedReference - define check for require.js module support.
+        define('arg-guard', [], function() { return ArgumentGuard })
     } else if (typeof exports === 'object') {
-        module.exports = argumentGuard
+        module.exports = ArgumentGuard
     } else {
-        root.ArgumentGuard = argumentGuard
+        root.ArgumentGuard = ArgumentGuard
     }
     
 })()
